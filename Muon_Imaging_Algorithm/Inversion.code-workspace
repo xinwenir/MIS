@@ -1,0 +1,40 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../../kotlin"
+		},
+		{
+			"path": "../../golang"
+		},
+		{
+			"path": "../Inv_Results_merge"
+		},
+		{
+			"path": "../../java/idea/LeetcodeArithmetic"
+		},
+		{
+			"path": "../../Latex"
+		}
+	],
+	"settings": {
+		"colorTabs.config": [
+			{
+				"regex": "\\.*"
+			},
+			{
+				"regex": ".*/web/.*"
+			},
+			{
+				"regex": ".*/mobile/.*"
+			}
+		],
+		"workbench.colorCustomizations": {
+		},
+		"clock.active": true,
+		"jupyter.debugJustMyCode": false,
+		"vscode-wxread.showStatusBarItem": false
+	}
+}

@@ -1,0 +1,446 @@
+@startuml
+
+!theme plain
+top to bottom direction
+skinparam linetype ortho
+
+class node4 as "DataManage.DataManager" {
+   A: 
+   _ij: 
+   _d_err: 
+   obs_tool: 
+   d_tool: 
+   _bounds: 
+   _g_values: 
+   air_j_tool: 
+   refs_tool: 
+   bonds_tool: 
+   _refs: 
+   _d_value: 
+   _g_ij: 
+   _unneed_j: 
+   _beta_chooser: 
+   mesh: 
+   _A_others: 
+   _instance: 
+   _A_others: 
+   _unneed_j: 
+   _beta_chooser: 
+   _misfit_refs_smooth: 
+   _beta_misfit_norms: 
+   _g_values: 
+   _ij: 
+   _d_value: 
+   _d_err: 
+   _bounds: 
+   _refs: 
+   get_instance(): 
+   __init__(self): 
+   Make_A(self): 
+   get_unneed_j(self): 
+   record_data_detail(self): 
+   choose_beta(self): 
+   Postprocessor(self, x): 
+   collect_misfit_refs_smooth(self, all, misfit, refs_x, smooth): 
+   collect_beta_misfit_norms(self, beta, misfit, norm): 
+   _output_res_data_process(self, res): 
+   _Visible_res(self, x): 
+   _Visible_computer_process(self): 
+   _show_beta_history(self): 
+   _get_g_values(self): 
+   _get_ij(self): 
+   _get_d_values(self): 
+   _get_d_err(self): 
+   _get_bounds(self): 
+   _get_refs(self): 
+}
+class node22 as "DataTools.Air_j.Air_j" {
+   un_need_j: 
+   get_air_j_to_file(self, mesh: MeshTools, topo_file, unneed_j_file, strategy): 
+   get_air_j_to_file_Jxyzfile_cache(self, mesh: MeshTools, topo_file, unneed_j_file, jxyz_file, strategy): 
+   get_air_j(self, xyzcells, step_x, step_y, step_z, topo_file,
+                  jxyz=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\jxyz",
+                  un_need_file=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\unneed_j"): 
+   get_air_j_from_file(self, unneed_j=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\unneed_j"): 
+   recover_resfile_by_airj(self, file_res, air_j=None, default_value=0): 
+   recover_resj_by_airj(self, res, air_j=None, default=-0.1234): 
+}
+class node2 as "DataTools.Assist_j_tool.Assist_j_tool" {
+   make_assist_j_file(cls,shape,path): 
+}
+class node13 as "DataTools.Bonds_tools.Bonds_tool" {
+   __data: 
+   __init__(self, boods_file_path,
+                 bound_min_value=None, bound_max_value=None): 
+   get_bonds_min_max(self): 
+   get_bonds_min(self): 
+   get_bonds_max(self): 
+   show_min(self, res_file): 
+   show_max(self, res_file): 
+}
+class node6 as "DataTools.Bonds_tools.Make_Bounds_Tools" {
+   shape: 
+   airj: 
+   __init__(self,airj,shape): 
+   save_bounds(self,path,air_bound,wall_bound,inner_bound): 
+}
+class node5 as "DataTools.ByterChooser.ByterChooser" {
+   beta_coefficient: 
+   dobs: 
+   beta_max: 
+   beta_min: 
+   beta: 
+   derr: 
+   _count: 
+   _get_beta_by_X2_count: 
+   __init__(self, dobs, derr, beta, beta_coefficient): 
+   _calculate(self, dpred): 
+   get_beta(self, pred=None, obsd=None): 
+   _get_beta_by_X2(self, pred, obsd): 
+   _get_beta_by_L(self, pred, obsd): 
+}
+class node1 as "DataTools.Gij_tools.G_Data" {
+   _ij: 
+   _GV: 
+   __init__(self,fileG,file_ij): 
+   get_ij(self): 
+   get_GV(self): 
+   get_G_csc_G(self,shape): 
+   get_GArray(self,shape): 
+}
+class node14 as "DataTools.Jxyz_Tools.Make_jxyz" {
+   jxyz_form_shape(self, shape, jxyz_file): 
+}
+class node12 as "DataTools.MeshTools.MeshTools" {
+   _cell_zs: 
+   _shape: 
+   _x_end_values: 
+   _y_end_values: 
+   _cell_ys: 
+   _cell_xs: 
+   end_z: 
+   _z_start_values: 
+   Start_x: 
+   _z_end_values: 
+   _y_start_values: 
+   _x_start_values: 
+   Start_y: 
+   _x_start_values: 
+   _x_end_values: 
+   _y_start_values: 
+   _y_end_values: 
+   _z_start_values: 
+   _z_end_values: 
+   _strategy_set: 
+   __init__(self, mesh_file): 
+   get_shape(self): 
+   cells_count(self): 
+   get_xs(self): 
+   x_start_values(self): 
+   x_end_values(self): 
+   y_start_values(self): 
+   y_end_values(self): 
+   z_start_values(self): 
+   z_end_values(self): 
+   get_ys(self): 
+   get_zs(self): 
+   get_xyz_start(self): 
+   get_xyz_end(self): 
+   get_coordinates_form_xyz(self, x, y, z, strategy=(0, 0, 0)): 
+   discretize_Physical_coordinates_x(self, x): 
+   discretize_Physical_coordinates_y(self, y): 
+   discretize_Physical_coordinates_z(self, z): 
+   discretize_Physical_coordinates(self, x, y, z, detailed=False): 
+}
+class node16 as "DataTools.Visibility_res_tools.Beta_log" {
+   file_path: 
+   file: 
+   __init__(self, file_path): 
+   record(self, beta, misfit, norm): 
+   show_L(self): 
+   show_similarL(self): 
+   show_Beta_search(self): 
+   show(self): 
+}
+class node15 as "DataTools.Visibility_res_tools.Norm_tools" {
+   data: 
+   __init__(self, all_misfit_ms_smooth_file=None, all_misfit_ms_smooth_list=None): 
+   store_res(self, file): 
+   show_norm(self): 
+}
+class node11 as "DataTools.Visibility_res_tools.Show_pred_obsd_derr" {
+   data: 
+   __init__(self, pred_obsd_derr_file=None, data=None): 
+   store_res(self, file): 
+   show_pred_obsd(self): 
+   show_pred_obsd_diff(self, interval=0.04, max_ignore=5): 
+   show_pred_obs_obsderr(self): 
+}
+class node9 as "DataTools.d_tools.d_tools" {
+   _data: 
+   _data_err: 
+   __init__(self, file): 
+   get_d(self): 
+   get_d_err(self): 
+   get_d_err_range(self): 
+}
+class node3 as "DataTools.new_res_tools.Merge_res" {
+   __init__(self): 
+   Merge_res_from_file(self,res_file1,res_file2): 
+}
+class node21 as "DataTools.new_res_tools.new_res_tools" {
+   data: 
+   __init__(self, res_list=None, res_file=None): 
+   mode0(self, target_file): 
+   mode1(self, min, max, ignore_value, target_file=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\new_mode1"): 
+   mode2(self, ignore_value, need_min_value=0.00001, target_file=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\new_mode2"): 
+   smooth_cells(self, cells_ref_res, cell_refs, air_js, oldj, shape,bounds): 
+   _get_all_neighbor_node_values(self, data, shape, oldjs, xyz,j,threshold_value,coefficient=(1,1,1,1,1,1)): 
+   _get_neighbor_node_value(self, shape, default_j, oldjs, xyz): 
+}
+class node17 as "DataTools.obs_tools.obs_tools" {
+   _data: 
+   _file: 
+   __init__(self, file): 
+   make_d_from_obs(self, d_file): 
+   get_obs_id_count(self): 
+   get_data(self): 
+   shape(self): 
+   get_d_form_obs(self): 
+   get_d_absolute_err_form_obs(self): 
+   get_d_relative_error_form_obs(self): 
+   get_receiver_list(self): 
+}
+class node26 as "DataTools.ref_tools.Make_refcence_tools" {
+   shape: 
+   airj: 
+   __init__(self,airj,shape): 
+   save_refs(self,path,air_value,wall_value,inner_value): 
+}
+class node20 as "DataTools.ref_tools.Ref_tools" {
+   data: 
+   __init__(self, path): 
+   get_data(self): 
+   recover_resj_by_refj(self, res, refs=None): 
+   make_refs_ps_err_list(self, refs, res): 
+   make_refs_ps_err_file(self, refs_file, ps, out_file): 
+}
+class node19 as "DataTools.res_tools.res_tools" {
+   __init__(self): 
+   Conversion_2(self, shape=(14, 21, 7), file_res=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\res",
+                     file_xyz=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\jxyz",
+                     file_out=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\new"): 
+}
+class node23 as "DataTools.show_ray_trace_tools.show_ray_trace_tools" {
+   jxyz_file: 
+   data: 
+   shape: 
+   __init__(self, shape): 
+   mark_ray(self, ids: list, show=None, group_method: list = None, id_values: dict = None,
+                 file_ij=Setting.Setting.get_instance().get_G_file(),
+                 file_res=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\ray_trace"): 
+   mark_ray_all(self, file_ij,
+                     file_res=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\ray_trace"): 
+   find_ray_by_cells(self, ids, show=None, file_ij=r"E:\vscode\Muon_Imaging_Algorithm\dataTools\data\ij"): 
+   get_j_from_scope(self, corners, xcmin, ycmin, zcmin, x_step, y_step, z_step,
+                         jxyz_file=r'D:\Projects\fortran\python\dead\jxyz', show=None): 
+   draw_points(self, cells: set, res_file, jxyz_file): 
+}
+class node25 as "DataTools.topo_tools.topo_tools" {
+   _data: 
+   _file: 
+   _x_cache: 
+   __point_cache_x: 
+   cache_count: 
+   __init__(self, file): 
+   init_x_cache(self): 
+   get_x_range(self, x, y, loose=1): 
+   check_point(self, x, y, z): 
+   check_point_cache(self, x, y, z, cache=True): 
+   get_cache_count(self): 
+}
+class node10 as "Setting.Setting" {
+   Setting._Sys_setting: 
+   Setting._Tools_setting: 
+   _sys_setting: 
+   _beta: 
+   _tools_setting: 
+   _log: 
+   _instance: 
+   _init: 
+   configuration_path: 
+   f: 
+   config: 
+   Inversion_procedure_config: 
+   _log_model_dic: 
+   _solver_meth: 
+   STP_dic: 
+   _parameter: 
+   _beta: 
+   _alpha_s: 
+   _alpha_x: 
+   _alpha_y: 
+   _alpha_z: 
+   _all_input: 
+   _obs_file: 
+   _bnd_file: 
+   _refs_file: 
+   _mesh_file: 
+   _topo_file: 
+   _sparse_matrix_file: 
+   _Output_file: 
+   _res_file: 
+   _res_refs_file: 
+   _log_config: 
+   _golable_log_file: 
+   _local_log_path: 
+   _log_model: 
+   _Temp_file: 
+   _all_new: 
+   _jxyz_file: 
+   _need_jxyz_file: 
+   _Assist_j_file: 
+   _G_file: 
+   _d_file: 
+   _air_j_file: 
+   _Solve: 
+   _solve_model: 
+   _max_iter: 
+   _max_time: 
+   _rm_unable_ray: 
+   _rm_air_cells: 
+   _rm_unray_cells: 
+   _rm_unable_cells: 
+   _show_detailed: 
+   _Other_setting: 
+   _show_res_picture: 
+   _store_res_picture: 
+   _res_recover_refs: 
+   _res_recover_air: 
+   _air_value: 
+   _sys_setting: 
+   _tools_setting: 
+   get_instance(): 
+   set_beta(self, beta): 
+   get_loger(self): 
+   get_beta(self): 
+   get_alpha(self): 
+   get_rm_unable_ray(self): 
+   get_rm_unable_cells(self): 
+   get_rm_unray_cells(self): 
+   get_rm_air_cells(self): 
+   get_max_time(self): 
+   __init__(self, *args, **kwargs): 
+   record_env_detailed(self): 
+   get_solve_method(self): 
+   get_air_value(self): 
+   get_obs_file(self): 
+   get_bnd_file(self): 
+   get_refs_file(self): 
+   get_mesh_file(self): 
+   get_topo_file(self): 
+   get_sparse_matrix_file(self): 
+   get_res_file(self): 
+   get_res_refs_file(self): 
+   get_jxyz_file(self): 
+   get_G_file(self): 
+   get_d_file(self): 
+   get_air_j_file(self): 
+   get_max_iter(self): 
+   get_show_detailed(self): 
+   get_res_recover_refs(self): 
+   get_res_recover_air(self): 
+   get_all_new(self): 
+   get_need_jxyz_file(self): 
+   Assist_j_file(self): 
+   sys_setting(self): 
+   tools_setting(self): 
+}
+class node7 as "Tools.MyTools.myPrint.Loger_Print" {
+   loger: 
+   printer: 
+   __init__(self, loger, printer): 
+   write(self, txt, loger=None, printer=None): 
+   flush(self): 
+   close(self): 
+}
+class node18 as "Tools.tools.Points_In_Coners_Tools" {
+   ABC1: 
+   p1: 
+   p2: 
+   ABC6: 
+   ABC4: 
+   ABC5: 
+   ABC2: 
+   ABC3: 
+   __init__(self,coners:list): 
+   is_in(self,points): 
+}
+class object {
+   __doc__: 
+   __dict__: 
+   __slots__: 
+   __module__: 
+   __annotations__: 
+   __class__(self: _T): 
+   __class__(self, __type: Type[object]): 
+   __init__(self): 
+   __new__(cls: Type[_T]): 
+   __setattr__(self, name: str, value: Any): 
+   __eq__(self, o: object): 
+   __ne__(self, o: object): 
+   __str__(self): 
+   __repr__(self): 
+   __hash__(self): 
+   __format__(self, format_spec: str): 
+   __getattribute__(self, name: str): 
+   __delattr__(self, name: str): 
+   __sizeof__(self): 
+   __reduce__(self): 
+   __reduce_ex__(self, protocol: SupportsIndex): 
+   __reduce_ex__(self, protocol: int): 
+   __dir__(self): 
+   __init_subclass__(cls): 
+}
+class node24 as "solver.Solver.Solver" {
+   Solver.STP: 
+   all_time: 
+   __init__(self): 
+   show_env(): 
+   run(self, beta=None, def_x=None): 
+   show_state(self): 
+   save_res(self): 
+   reset(self): 
+   close(self): 
+}
+class node8 as "typing.Hashable" {
+   __hash__(self): 
+}
+
+node4   ^-[#595959,plain]-  object 
+node22  ^-[#595959,plain]-  object 
+node2   ^-[#595959,plain]-  object 
+node13  ^-[#595959,plain]-  object 
+node6   ^-[#595959,plain]-  object 
+node5   ^-[#595959,plain]-  object 
+node1   ^-[#595959,plain]-  object 
+node14  ^-[#595959,plain]-  object 
+node12  ^-[#595959,plain]-  object 
+node16  ^-[#595959,plain]-  object 
+node15  ^-[#595959,plain]-  object 
+node11  ^-[#595959,plain]-  object 
+node9   ^-[#595959,plain]-  object 
+node3   ^-[#595959,plain]-  object 
+node21  ^-[#595959,plain]-  object 
+node17  ^-[#595959,plain]-  object 
+node26  ^-[#595959,plain]-  object 
+node20  ^-[#595959,plain]-  object 
+node19  ^-[#595959,plain]-  object 
+node23  ^-[#595959,plain]-  object 
+node25  ^-[#595959,plain]-  object 
+node10  ^-[#595959,plain]-  object 
+node7   ^-[#595959,plain]-  object 
+node18  ^-[#595959,plain]-  object 
+object  ^-[#595959,dashed]-  node8  
+node24  ^-[#595959,plain]-  object 
+@enduml

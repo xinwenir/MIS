@@ -1,0 +1,67 @@
+\hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser}{}\section{M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+Inv\+Data\+Tools.\+Byter\+Chooser.\+Byter\+Chooser Class Reference}
+\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser}\index{M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+Inv\+Data\+Tools.\+Byter\+Chooser.\+Byter\+Chooser@{M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+Inv\+Data\+Tools.\+Byter\+Chooser.\+Byter\+Chooser}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a577847bbf88d79ed216832443b22cf7e}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a577847bbf88d79ed216832443b22cf7e}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, dobs, derr, beta, beta\+\_\+coefficient)
+\item 
+def \hyperlink{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_ac663bcd137be87be408814145d494fc1}{get\+\_\+beta} (self, pred=None, obsd=None)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a5056ad4ac5a5bd9fc4be9d92c6598a89}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a5056ad4ac5a5bd9fc4be9d92c6598a89}} 
+{\bfseries dobs}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a40a40cdd03ec87c8c8e24e4be466ca63}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a40a40cdd03ec87c8c8e24e4be466ca63}} 
+{\bfseries derr}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a8ff6800efaa89187a4f09387d2a8b638}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a8ff6800efaa89187a4f09387d2a8b638}} 
+{\bfseries beta}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_acb4effaef6d07853021c08c047fe56c6}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_acb4effaef6d07853021c08c047fe56c6}} 
+{\bfseries beta\+\_\+coefficient}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a6b4469125627ebbe34d76f7f1988db00}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_a6b4469125627ebbe34d76f7f1988db00}} 
+{\bfseries beta\+\_\+min}
+\item 
+\hyperlink{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_ae8ffeb4938883701926cbd6cbf74c4ac}{beta\+\_\+max}
+\begin{DoxyCompactList}\small\item\em beta搜索范围过小 if self.\+beta\+\_\+max -\/ self.\+beta\+\_\+min $<$ beta\+\_\+accuracy $\ast$ 2\+: print(\char`\"{}beta搜索满足精度\char`\"{}) return self.\+beta, False 不再下降 \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}beta选择器\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_ac663bcd137be87be408814145d494fc1}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_ac663bcd137be87be408814145d494fc1}} 
+\index{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser}!get\+\_\+beta@{get\+\_\+beta}}
+\index{get\+\_\+beta@{get\+\_\+beta}!M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser}}
+\subsubsection{\texorpdfstring{get\+\_\+beta()}{get\_beta()}}
+{\footnotesize\ttfamily def M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+Inv\+Data\+Tools.\+Byter\+Chooser.\+Byter\+Chooser.\+get\+\_\+beta (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{pred = {\ttfamily None},  }\item[{}]{obsd = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}请求beta,根据设置来采取beta的选取
+
+:param pred: 预测的d
+:param obsd: 观测的d
+:return: 经过选择得到的beta
+\end{DoxyVerb}
+ 
+
+\subsection{Member Data Documentation}
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_ae8ffeb4938883701926cbd6cbf74c4ac}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1InvDataTools_1_1ByterChooser_1_1ByterChooser_ae8ffeb4938883701926cbd6cbf74c4ac}} 
+\index{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser}!beta\+\_\+max@{beta\+\_\+max}}
+\index{beta\+\_\+max@{beta\+\_\+max}!M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::\+Inv\+Data\+Tools\+::\+Byter\+Chooser\+::\+Byter\+Chooser}}
+\subsubsection{\texorpdfstring{beta\+\_\+max}{beta\_max}}
+{\footnotesize\ttfamily M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+Inv\+Data\+Tools.\+Byter\+Chooser.\+Byter\+Chooser.\+beta\+\_\+max}
+
+
+
+beta搜索范围过小 if self.\+beta\+\_\+max -\/ self.\+beta\+\_\+min $<$ beta\+\_\+accuracy $\ast$ 2\+: print(\char`\"{}beta搜索满足精度\char`\"{}) return self.\+beta, False 不再下降 
+
+略微放大区间 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Muon\+\_\+\+Imaging\+\_\+\+Algorithm/\+Inv\+Data\+Tools/Byter\+Chooser.\+py\end{DoxyCompactItemize}

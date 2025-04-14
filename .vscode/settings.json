@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "*.f": "fortran",
+        "txt2root.C": "cpp"
+    },
+    "Codegeex.RepoIndex": true
+}

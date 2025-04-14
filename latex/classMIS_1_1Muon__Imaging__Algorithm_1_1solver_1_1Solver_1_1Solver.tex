@@ -1,0 +1,82 @@
+\hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver}{}\section{M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+solver.\+Solver.\+Solver Class Reference}
+\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver}\index{M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+solver.\+Solver.\+Solver@{M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+solver.\+Solver.\+Solver}}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_1_1STP}{S\+TP}
+\end{DoxyCompactItemize}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a055e6cca9674d55c1a3fe2d390029a7b}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self)
+\item 
+def \hyperlink{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a297a4bb34bdb9a9661420e30aa512c92}{run} (self, beta=None, def\+\_\+x=None)
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a7fc54419a1cbcbdbde516ad2e605148a}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a7fc54419a1cbcbdbde516ad2e605148a}} 
+def {\bfseries show\+\_\+state} (self)
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a944d7df9c9015d5fea8d2a9d73925533}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a944d7df9c9015d5fea8d2a9d73925533}} 
+def {\bfseries save\+\_\+res} (self)
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a80a5495e38bb14d9ff97fcc996d5a7da}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a80a5495e38bb14d9ff97fcc996d5a7da}} 
+def {\bfseries reset} (self)
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a8b4a5af848dd68e714cd575b769f98fd}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a8b4a5af848dd68e714cd575b769f98fd}} 
+def {\bfseries close} (self)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_aba542ec992f4439a203c5cd1ac63454a}{show\+\_\+env} ()
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a43712e147688d76885895709b4843010}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a43712e147688d76885895709b4843010}} 
+def {\bfseries in\+\_\+bounds} (x, bounds)
+\end{DoxyCompactItemize}
+\subsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_ab252e5a2bfad599714ed6e645d6dc379}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_ab252e5a2bfad599714ed6e645d6dc379}} 
+{\bfseries all\+\_\+time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}支持多线程,一次数据存取后通过向run方法中传入新参数(参数,求解器类型等)
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a055e6cca9674d55c1a3fe2d390029a7b}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a055e6cca9674d55c1a3fe2d390029a7b}} 
+\index{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+solver.\+Solver.\+Solver.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}根据设置获取不可变的数据
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a297a4bb34bdb9a9661420e30aa512c92}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_a297a4bb34bdb9a9661420e30aa512c92}} 
+\index{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver}!run@{run}}
+\index{run@{run}!M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver}}
+\subsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily def M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+solver.\+Solver.\+Solver.\+run (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{beta = {\ttfamily None},  }\item[{}]{def\+\_\+x = {\ttfamily None} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}执行反演
+:return: 本次反演的结果;下次运行的建议(当前和下次运行的beta值,是否需要继续运行等);当前的目标函数
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_aba542ec992f4439a203c5cd1ac63454a}\label{classMIS_1_1Muon__Imaging__Algorithm_1_1solver_1_1Solver_1_1Solver_aba542ec992f4439a203c5cd1ac63454a}} 
+\index{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver}!show\+\_\+env@{show\+\_\+env}}
+\index{show\+\_\+env@{show\+\_\+env}!M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver@{M\+I\+S\+::\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm\+::solver\+::\+Solver\+::\+Solver}}
+\subsubsection{\texorpdfstring{show\+\_\+env()}{show\_env()}}
+{\footnotesize\ttfamily def M\+I\+S.\+Muon\+\_\+\+Imaging\+\_\+\+Algorithm.\+solver.\+Solver.\+Solver.\+show\+\_\+env (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\begin{DoxyVerb}显示当前的基本配置
+:return:
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Muon\+\_\+\+Imaging\+\_\+\+Algorithm/solver/Solver.\+py\end{DoxyCompactItemize}

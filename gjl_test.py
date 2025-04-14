@@ -1,0 +1,2 @@
+from Muon_Imaging_Algorithm.inversion import start_inversion_by_setting
+start_inversion_by_setting("")

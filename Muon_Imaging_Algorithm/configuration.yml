@@ -1,0 +1,143 @@
+Inversion_procedure:
+ #输入文件
+ _All_input:
+   _obs_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/toy_1_normal005.dat
+
+   _bnd_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/toy1_bnd1.den
+  #  _bnd_file: E:\vscode\Muon_Imaging_Algorithm\data\seed_study\optimize_res\new_methods_bounds.den
+
+   _refs_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/toy1_ref1.den
+  #  _refs_file: E:\vscode\Muon_Imaging_Algorithm\data\seed_study\optimize_res\new_methods_ref.den
+
+   _mesh_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/toy1.msh
+   _topo_file: null
+   _sparse_matrix_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/Gij
+ #中间文件
+ _Temp_file:
+   _all_new: True
+   _need_jxyz_file : True
+   _jxyz_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/jxyz
+   _G_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/G
+   _d_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/d
+   _air_j_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/unneed_j
+   _Assist_j_file : /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/Assist_j
+   _pred_obsd_derr_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/pred_obsd_derr
+   _all_misfit_ms_smooth_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/all_misfit_ms_smooth
+   _beta_misfit_norms_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/beta_misfit_norms
+   _Ray_way_j_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/Ray_way_j
+ #输出文件
+ _Output_file:
+  _res_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/res.den
+  _res_refs_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/ref_ps
+  _res_smooth_file: /data/guorui/SynologyDrive/liugreen/my_thesis/figures/synthTest_seed/ubcInversion/res_smooth.den
+  _d_obs_pred_diff_file: 111 #需要实现
+ _log_config:
+  #全局日志文件
+  _golable_log_file: E:\vscode\Muon_Imaging_Algorithm\data\output\log.txt
+  _local_log_path: E:\vscode\Muon_Imaging_Algorithm\data\output\
+  #    1:全局模式.日志文件追加到数据文件根目录的 日志中
+  #    2:局部模式,日志文件写在每次反演的输出目录下ps为了避免覆盖采用日期时间命名
+  _log_model: 1
+  _log_detailed: 1 #详细等级(0,1,2)
+ #输入参数
+ _parameter:
+   _beta : 0.04
+   _alpha_s: 5
+   _alpha_x: 3
+   _alpha_y: 1.5
+   _alpha_z: 6
+
+
+ #求解器
+ _Solve:
+   _solve_model: 1
+   _max_iter: 30  # 这个仅仅指目标函数调用次数,具体内部迭代次数根据方法特性写死的
+   _max_time: 400  # 允许求解器运行的最大时间
+   _rm_unable_ray: True
+   _rm_air_cells: True  # 排除属于空气的格子,不参与运算,默认不改变方程组的维度
+   _rm_unray_cells: True # 排除没有射线穿过的格子,不参与运算,默认不改变方程组的维度
+   _rm_unable_cells: True  # _rm_air_cells和_rm_unray_cells排除掉的格子是否完全去掉(改变方程组的维度)---此项可以大幅度加快运算
+   _show_detailed: True
+ #其他配置
+ _Other_setting:
+  _show_res_picture: False
+  _store_res_picture: True  # 没必要让用户指定文件名称
+  _res_recover_refs: False
+  _res_recover_air: True
+  _air_value: -0.1234
+ _log_model_dic:
+  1: 使用全局日志
+  2: 单次存放在用户的输出文件目录中
+
+ _solver_meth:
+  1: 'L-BFGS-B'
+  2: 'least_squares'
+  3: 'trust-constr'
+  4: 'CG'
+  6: 'TNC'
+  7: 'dual_annealing'
+  8: 'L-BFGS-B_optimparallel' #并发LBFGSB,但是会出现重复导入,运行速度理论最快达到n倍,n为计算机cpu核心数量,此方案似乎可行,但是几乎需要对代码进行非常大的修改
+  9: "line_search"
+  10: "Powell"
+  11: "my_lbfgs"
+  12: "SGD"
+  13: "lbfgsb-equation" #如果只考虑misfit，或者β等于0，这个方式相较于1速度快很多很多
+
+
+ STP_dic:
+  1: "最大迭代次数超过了用户的期望,触发STP=1"
+  2: "最长运行时间超过了用户的期望,触发STP=2"
+
+Sys_setting:
+ process_monitoring:
+   model: 0 #0 , 1 , 2,其他 0为不开启,1为静默记录,2为GUI界面
+   interval: 5 #>=1
+   model_dict:
+     0: "不启用"
+     1: "静默启动,无GUI仅记录"
+     2: "有GUI启动"
+
+ Bonds_tool:
+  bound_min_value: ~
+  bound_max_value: ~
+ ByterChooser:
+  beta_choose_mode: 1
+  beta_choose_mode_dict:
+    1: 使用设置中的配置(default)
+    2: 基于卡方和标准差
+    3: 基于L-cure
+    default: 1
+  beta_by_X2: #基于卡方和标准差
+    beta_accuracy: 0.004
+    beta_coefficient: 0.95 #beta的搜索空间是(0,2*beta)
+    search_mode: 4
+    search_mode_dic: #[1,5]整数，精确度越来越差,速度越来越快
+      1: 线性
+      2: 伪二分法
+      3: 随机二分
+      4: 快速模糊搜索
+      5: 在单次反演中找到(类似UBC待开发)
+ Air_tools:
+   strategy_dic:
+    0: 中点
+    1: 左边/下边/里面
+    2: 右边/上边/外边
+   strategy:
+      - 0
+      - 2
+      - 2
+ Ref_tool:
+   air_value: -0.1234
+   wall_value: 2.4
+   inner_value: 1.89
+ New_res_tools: #需要映射
+   smooth_cells:
+    threshold_value: 0.3
+    weight: 24
+    coefficient:
+     - 3
+     - 3
+     - 1.5
+     - 1.5
+     - 6
+     - 6

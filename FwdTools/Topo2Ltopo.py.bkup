@@ -1,0 +1,34 @@
+from ROOT import TH1F, TF1, TCanvas, TFile, TLine, TTree, TMath, TVector3, TList, gPad
+from DataTools import Topography
+from FwdTools import dic_hist_name
+
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class Topo2Ltopo:
+    def __init__(self):
+        pass
+
+    def write_ltopo(self, topo: Topography, det, out_fname=''):
+        if not out_fname.__contains__('.root'):
+            out_fname = topo.get_topo_fname().replace('.obj', '.root').replace('.csv', '.root')
+
+        # calculate ltopo hists
+        _h_accept_thetaphi, _h_accept_thetaxy = det.get_acceptance_plane_det()
+        h_ltopo_thetaphi = topo.calc_path_length(det, _h_accept_thetaphi, 'thetaphi')
+        h_ltopo_thetaphi.SetNameTitle(dic_hist_name['hthetaphi_ltopo'],
+                                      '%s; #phi [rad]; #theta [rad]' % dic_hist_name['hthetaphi_ltopo'])
+        h_ltopo_thetaxy = topo.calc_path_length(det, _h_accept_thetaxy, 'thetaxy')
+        h_ltopo_thetaxy.SetNameTitle(dic_hist_name['hthetaxy_ltopo'],
+                                     '%s; #theta_{y} [rad]; #theta_{x} [rad]' % dic_hist_name['hthetaxy_ltopo'])
+
+        # write into root file
+        fout = TFile(out_fname, 'recreate')
+
+        h_ltopo_thetaphi.Write()
+        h_ltopo_thetaxy.Write()
+
+        fout.Save()
+        fout.Close()

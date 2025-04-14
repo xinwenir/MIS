@@ -1,0 +1,86 @@
+\hypertarget{classnew__res__tools_1_1new__res__tools}{}\section{new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools Class Reference}
+\label{classnew__res__tools_1_1new__res__tools}\index{new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnew__res__tools_1_1new__res__tools_a33a3c069bc85a275398bbde348966e38}\label{classnew__res__tools_1_1new__res__tools_a33a3c069bc85a275398bbde348966e38}} 
+def {\bfseries \+\_\+\+\_\+init\+\_\+\+\_\+} (self, res\+\_\+list=None, res\+\_\+file=None)
+\item 
+def \hyperlink{classnew__res__tools_1_1new__res__tools_aa088ef1d63848aec177552b6e94ebbbf}{mode0} (self, target\+\_\+file)
+\item 
+def \hyperlink{classnew__res__tools_1_1new__res__tools_a58bd123c2c81266295228e3f31fc5703}{mode1} (self, min, max, ignore\+\_\+value, target\+\_\+file=r\char`\"{}M\+:\textbackslash{}charm\textbackslash{}version\textbackslash{}ta\+Tools\textbackslash{}ta\textbackslash{}w\+\_\+mode1\char`\"{})
+\item 
+def \hyperlink{classnew__res__tools_1_1new__res__tools_aebe00bcd2bfd2ff3c6b9b37a43aad986}{mode2} (self, ignore\+\_\+value, need\+\_\+min\+\_\+value=0.\+00001, target\+\_\+file=r\char`\"{}M\+:\textbackslash{}charm\textbackslash{}version\textbackslash{}ta\+Tools\textbackslash{}ta\textbackslash{}w\+\_\+mode2\char`\"{})
+\item 
+def \hyperlink{classnew__res__tools_1_1new__res__tools_a96a6b58a3dc3288188605d01baaef30b}{smooth\+\_\+cells} (self, cells\+\_\+ref\+\_\+res, cell\+\_\+refs, air\+\_\+js, oldj, shape, bounds)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classnew__res__tools_1_1new__res__tools_a1cd87773eacef322f1c0be64f8d9a0ae}\label{classnew__res__tools_1_1new__res__tools_a1cd87773eacef322f1c0be64f8d9a0ae}} 
+{\bfseries data}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}对结果进行一些处理\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classnew__res__tools_1_1new__res__tools_aa088ef1d63848aec177552b6e94ebbbf}\label{classnew__res__tools_1_1new__res__tools_aa088ef1d63848aec177552b6e94ebbbf}} 
+\index{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}!mode0@{mode0}}
+\index{mode0@{mode0}!new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}}
+\subsubsection{\texorpdfstring{mode0()}{mode0()}}
+{\footnotesize\ttfamily def new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools.\+mode0 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{target\+\_\+file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}将结果存到文件中
+
+:param target_file: 存放结果的文件路径
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classnew__res__tools_1_1new__res__tools_a58bd123c2c81266295228e3f31fc5703}\label{classnew__res__tools_1_1new__res__tools_a58bd123c2c81266295228e3f31fc5703}} 
+\index{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}!mode1@{mode1}}
+\index{mode1@{mode1}!new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}}
+\subsubsection{\texorpdfstring{mode1()}{mode1()}}
+{\footnotesize\ttfamily def new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools.\+mode1 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{min,  }\item[{}]{max,  }\item[{}]{ignore\+\_\+value,  }\item[{}]{target\+\_\+file = {\ttfamily r\char`\"{}M\+:\textbackslash{}pycharm\textbackslash{}Inversion\textbackslash{}DataTools\textbackslash{}data\textbackslash{}new\+\_\+mode1\char`\"{}} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}检查结果，将结果中不在[min，max]的数据调整为min、max数据
+
+:param min: 最小值
+:param max: 最大值
+:param ignore_value: 忽略的值，即当ignore_value包含值value时，值value不需要判断是否位于[min,max]
+:param target_file: 存放处理结果的文件路径
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classnew__res__tools_1_1new__res__tools_aebe00bcd2bfd2ff3c6b9b37a43aad986}\label{classnew__res__tools_1_1new__res__tools_aebe00bcd2bfd2ff3c6b9b37a43aad986}} 
+\index{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}!mode2@{mode2}}
+\index{mode2@{mode2}!new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}}
+\subsubsection{\texorpdfstring{mode2()}{mode2()}}
+{\footnotesize\ttfamily def new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools.\+mode2 (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{ignore\+\_\+value,  }\item[{}]{need\+\_\+min\+\_\+value = {\ttfamily 0.00001},  }\item[{}]{target\+\_\+file = {\ttfamily r\char`\"{}M\+:\textbackslash{}pycharm\textbackslash{}Inversion\textbackslash{}DataTools\textbackslash{}data\textbackslash{}new\+\_\+mode2\char`\"{}} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}检查结果，使结果整体偏移保证最小值为min，此处的min分两种情况，当数据的最小值大于等于0时，不进行任何处理，当数据的最小值小于0时，处理后的结果中的最小值应为need_min_value
+
+:param ignore_value: 忽略的值，即当ignore_value包含值value时，值value不需要进行额外处理
+:param need_min_value: 结果中的最小值应为need_min_value，当数据的最小值大于等于0时，此参数失效
+:param target_file: 存放处理结果的文件路径
+:return:
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classnew__res__tools_1_1new__res__tools_a96a6b58a3dc3288188605d01baaef30b}\label{classnew__res__tools_1_1new__res__tools_a96a6b58a3dc3288188605d01baaef30b}} 
+\index{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}!smooth\+\_\+cells@{smooth\+\_\+cells}}
+\index{smooth\+\_\+cells@{smooth\+\_\+cells}!new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools@{new\+\_\+res\+\_\+tools\+::new\+\_\+res\+\_\+tools}}
+\subsubsection{\texorpdfstring{smooth\+\_\+cells()}{smooth\_cells()}}
+{\footnotesize\ttfamily def new\+\_\+res\+\_\+tools.\+new\+\_\+res\+\_\+tools.\+smooth\+\_\+cells (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{cells\+\_\+ref\+\_\+res,  }\item[{}]{cell\+\_\+refs,  }\item[{}]{air\+\_\+js,  }\item[{}]{oldj,  }\item[{}]{shape,  }\item[{}]{bounds }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}对结果进行平滑处理
+
+:param cells_ref_res: 格子的密度值(结果值-参考值)--注意这个必须已经经过 restore_res后的结果,即可以直接显示的结果
+:param cell_refs: 格子密度的参考值
+:param air_js: 空气格子的编号
+:param oldj: 不是空气的格子编号(此处为未压缩前的格子编号、且格子有无被射线穿过取决于输入)
+:param shape: 模型在x、y、z方向上的格子数目
+:param bounds: 格子密度的约束值
+:return: 平滑处理的结果
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Muon\+\_\+\+Imaging\+\_\+\+Algorithm/\+Data\+Tools/new\+\_\+res\+\_\+tools.\+py\end{DoxyCompactItemize}

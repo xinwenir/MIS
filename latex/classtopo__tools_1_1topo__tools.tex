@@ -1,0 +1,107 @@
+\hypertarget{classtopo__tools_1_1topo__tools}{}\section{topo\+\_\+tools.\+topo\+\_\+tools Class Reference}
+\label{classtopo__tools_1_1topo__tools}\index{topo\+\_\+tools.\+topo\+\_\+tools@{topo\+\_\+tools.\+topo\+\_\+tools}}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classtopo__tools_1_1topo__tools_ae18ef5271dc3172ab62129dedb2e8950}{\+\_\+\+\_\+init\+\_\+\+\_\+} (self, file)
+\item 
+def \hyperlink{classtopo__tools_1_1topo__tools_a250235e60a6317a7d24a2a6e62eaad18}{init\+\_\+x\+\_\+cache} (self)
+\item 
+def \hyperlink{classtopo__tools_1_1topo__tools_a539b10bdbc486db99350fb973840b516}{get\+\_\+x\+\_\+range} (self, x, y, loose=1)
+\item 
+def \hyperlink{classtopo__tools_1_1topo__tools_a71d64a3dbbbd261ecb63c4b435c07383}{check\+\_\+point} (self, x, y, z)
+\item 
+def \hyperlink{classtopo__tools_1_1topo__tools_a7331c454b277a899a176db176b3d4e62}{check\+\_\+point\+\_\+cache} (self, x, y, z, cache=True)
+\item 
+def \hyperlink{classtopo__tools_1_1topo__tools_a01655c25b44d883096a9f9b964003708}{get\+\_\+cache\+\_\+count} (self)
+\end{DoxyCompactItemize}
+\subsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classtopo__tools_1_1topo__tools_a06209159d9fcb4c585a6a4d2394377ed}\label{classtopo__tools_1_1topo__tools_a06209159d9fcb4c585a6a4d2394377ed}} 
+{\bfseries cache\+\_\+count}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}读取”topo“文件 ,初始化 Topo工具
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classtopo__tools_1_1topo__tools_ae18ef5271dc3172ab62129dedb2e8950}\label{classtopo__tools_1_1topo__tools_ae18ef5271dc3172ab62129dedb2e8950}} 
+\index{topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}!\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}}
+\index{\+\_\+\+\_\+init\+\_\+\+\_\+@{\+\_\+\+\_\+init\+\_\+\+\_\+}!topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}}
+\subsubsection{\texorpdfstring{\+\_\+\+\_\+init\+\_\+\+\_\+()}{\_\_init\_\_()}}
+{\footnotesize\ttfamily def topo\+\_\+tools.\+topo\+\_\+tools.\+\_\+\+\_\+init\+\_\+\+\_\+ (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{file }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}通过读取文件来构建
+:param file: topo文件
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\mbox{\Hypertarget{classtopo__tools_1_1topo__tools_a71d64a3dbbbd261ecb63c4b435c07383}\label{classtopo__tools_1_1topo__tools_a71d64a3dbbbd261ecb63c4b435c07383}} 
+\index{topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}!check\+\_\+point@{check\+\_\+point}}
+\index{check\+\_\+point@{check\+\_\+point}!topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}}
+\subsubsection{\texorpdfstring{check\+\_\+point()}{check\_point()}}
+{\footnotesize\ttfamily def topo\+\_\+tools.\+topo\+\_\+tools.\+check\+\_\+point (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}判断格子是不是在topo文件上方_离散化toppo
+:param x:
+:param y:
+:param z:
+:return: list : [是不是在topo文件上方,用来判定的坐标,需要判定的坐标]
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classtopo__tools_1_1topo__tools_a7331c454b277a899a176db176b3d4e62}\label{classtopo__tools_1_1topo__tools_a7331c454b277a899a176db176b3d4e62}} 
+\index{topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}!check\+\_\+point\+\_\+cache@{check\+\_\+point\+\_\+cache}}
+\index{check\+\_\+point\+\_\+cache@{check\+\_\+point\+\_\+cache}!topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}}
+\subsubsection{\texorpdfstring{check\+\_\+point\+\_\+cache()}{check\_point\_cache()}}
+{\footnotesize\ttfamily def topo\+\_\+tools.\+topo\+\_\+tools.\+check\+\_\+point\+\_\+cache (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{z,  }\item[{}]{cache = {\ttfamily True} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}判断格子是不是在topo文件上方--缓存每次判断的结果中不为空气的最大值
+
+:param x:
+:param y:
+:param z:
+:param cache: 是否使用缓存,使用将降低一些精度,但是可以大幅度提升速度(约1000倍)
+:return: [是不是在topo文件上方,用来判定的坐标,需要判定的坐标]
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classtopo__tools_1_1topo__tools_a01655c25b44d883096a9f9b964003708}\label{classtopo__tools_1_1topo__tools_a01655c25b44d883096a9f9b964003708}} 
+\index{topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}!get\+\_\+cache\+\_\+count@{get\+\_\+cache\+\_\+count}}
+\index{get\+\_\+cache\+\_\+count@{get\+\_\+cache\+\_\+count}!topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}}
+\subsubsection{\texorpdfstring{get\+\_\+cache\+\_\+count()}{get\_cache\_count()}}
+{\footnotesize\ttfamily def topo\+\_\+tools.\+topo\+\_\+tools.\+get\+\_\+cache\+\_\+count (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}返回自从上次调用以来有多少数据被加速
+
+:return:
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classtopo__tools_1_1topo__tools_a539b10bdbc486db99350fb973840b516}\label{classtopo__tools_1_1topo__tools_a539b10bdbc486db99350fb973840b516}} 
+\index{topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}!get\+\_\+x\+\_\+range@{get\+\_\+x\+\_\+range}}
+\index{get\+\_\+x\+\_\+range@{get\+\_\+x\+\_\+range}!topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}}
+\subsubsection{\texorpdfstring{get\+\_\+x\+\_\+range()}{get\_x\_range()}}
+{\footnotesize\ttfamily def topo\+\_\+tools.\+topo\+\_\+tools.\+get\+\_\+x\+\_\+range (\begin{DoxyParamCaption}\item[{}]{self,  }\item[{}]{x,  }\item[{}]{y,  }\item[{}]{loose = {\ttfamily 1} }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}获取x0属于[x-loose/4,x-loose/4]且|y-y0|<1的所有数据
+
+:param x: x 坐标
+:param y: y 坐标
+:param loose: 宽松度
+:return: (x,y)附近的所有的topo信息
+\end{DoxyVerb}
+ \mbox{\Hypertarget{classtopo__tools_1_1topo__tools_a250235e60a6317a7d24a2a6e62eaad18}\label{classtopo__tools_1_1topo__tools_a250235e60a6317a7d24a2a6e62eaad18}} 
+\index{topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}!init\+\_\+x\+\_\+cache@{init\+\_\+x\+\_\+cache}}
+\index{init\+\_\+x\+\_\+cache@{init\+\_\+x\+\_\+cache}!topo\+\_\+tools\+::topo\+\_\+tools@{topo\+\_\+tools\+::topo\+\_\+tools}}
+\subsubsection{\texorpdfstring{init\+\_\+x\+\_\+cache()}{init\_x\_cache()}}
+{\footnotesize\ttfamily def topo\+\_\+tools.\+topo\+\_\+tools.\+init\+\_\+x\+\_\+cache (\begin{DoxyParamCaption}\item[{}]{self }\end{DoxyParamCaption})}
+
+\begin{DoxyVerb}缓存x加快索引,x按照0.25一个单位进行离散化
+
+:return:
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Muon\+\_\+\+Imaging\+\_\+\+Algorithm/\+Data\+Tools/topo\+\_\+tools.\+py\end{DoxyCompactItemize}
