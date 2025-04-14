@@ -407,7 +407,7 @@ class CalculatePositionsDF_PlaneA(CalculatePositionsDF):
     def _print_calc_matrix(self):
         pass
 
-    @profile(precision=4, stream=open('/data/guorui/SynologyDrive/MaijiGrotto/MJS20240428/LGR-analysis/log_mem.txt', 'w+', encoding="utf-8"))
+    @profile(precision=4, stream=open('/home/zxw/data/mis_log/log_mem.txt', 'w+', encoding="utf-8"))
     def CalcHitPoints_NPlane(self, h5_fname, root_fname, det, calc_multi_trigger=True,
                              use_det_meas_time=False):
         h5_file_name = os.path.split(CommonUtils.splitext_h5_fname(h5_fname))[1]
