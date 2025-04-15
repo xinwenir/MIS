@@ -19,3 +19,24 @@ SSP2E数据包解析说明
 下面对每个数据（16bit）进行说明，最高的两位固定是0，G是增益位（HG为1，LG为0，先目前HG+LG模式下没意义），H为触发位，代表着这个数据通道是被触发的。后12个bit为电荷信号的ADC码值，BCID暂时不用，CHIPID目前定为0x0001，用于数据包的核验。
 
 注：每次只有一个通道被触发，其它通道会一起采数。
+
+        解析一个SSP2E数据包
+        THE FOEMAT OF SOURCE:
+        ---------DATA PART-------------
+        NAME    ROW     SIZE    LOCAL
+        HAED    1ROW    2Bytes  0-1         0xFA 0x5A
+        HGain   36ROW   72Bytes 2-73        
+        LGain   36ROW   72Bytes 74-145
+        BCID    1ROW    2Bytes  146-147
+        ChipID  1ROW    2Bytes  148-149
+        Temp    1ROW    2Bytes  150-151
+        Trigger 1ROW    2Bytes  151-153
+        TAIL    1ROW    4Bytes  154-157     0xFE 0xEE 0xFE 0xEE
+        TOTAL SIZE: 158
+        *********DECODED DATA*********
+        NAME            LENGTH
+        CHARGE          36
+        Temp            1
+        TrigID          1
+        TOTAL LENGTH:   38
+        ===============================
