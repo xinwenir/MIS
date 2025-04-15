@@ -12176,3 +12176,43 @@ trigger rate (dataframe number of rows / time interval, unit: per hour): 698841 
 2024-06-26 09:48:30,979 [ root ] - INFO : {'OutDir': '', 'Filter': 'FillTopoDensity', 'kwargs': {'Input.MeshName': 'Concrete.msh', 'Input.Strategy': ['0', '0', '1'], 'Input.TopoNames': ['Rebar1'], 'Rebar1.DensityRef': '2.65', 'Rebar1.DensityBound': ['0', '2.7'], 'Input.AirRef': '', 'Input.AirBound': '', 'Output.BottomCoordName': 'bottom_coord.txt', 'Output.IntersectionName': 'inter.txt', 'Output.DirectionName': 'direction.dat', 'Output.DensityRefName': 'Rebar1_ref.den', 'Output.DensityBoundName': 'Rebar1_bnd.den'}}
 2024-06-26 09:48:30,979 [ DataFactory.DataManager ] - INFO : Run FillTopoDensity
 2024-06-26 09:48:32,213 [ DataFactory.DataManager ] - WARNING : Use default air density bound:-0.00001, 0.00001
+2025-04-15 15:58:59,823 [ root ] - INFO : step_PrintOfflineTablesInfo
+2025-04-15 15:58:59,823 [ root ] - INFO : {'OutDir': 'printDatabaseInfo', 'Filter': 'PrintOfflineTablesInfo', 'kwargs': {'Input.Hdf5Dir': 'data', 'Output.FileName': 'originData.csv'}}
+2025-04-15 15:58:59,823 [ root ] - INFO : step_TimeSlice
+2025-04-15 15:58:59,823 [ root ] - INFO : {'OutDir': 'timeSlice', 'Filter': 'TimeSlice', 'kwargs': {'Input.Hdf5Dir': 'data', 'Input.Hdf5Names': ['tmpData32'], 'Input.TimeIntervals': '0.5d', 'Input.CheckFactor': '5', 'Input.IfPrint': 'True', 'Input.DrawOptions': ['TH1F:histe']}}
+2025-04-15 15:58:59,823 [ root ] - INFO : step_SeparateFalseTrigger_Plane
+2025-04-15 15:58:59,823 [ root ] - INFO : {'OutDir': 'dataframeProcessing', 'Filter': 'SeparateFalseTrigger_Plane', 'kwargs': {'Input.Hdf5Dir': 'data', 'Input.Hdf5Names': ['tmpData32']}}
+2025-04-15 15:58:59,823 [ root ] - INFO : step_FiltrateAllHit
+2025-04-15 15:58:59,823 [ root ] - INFO : {'OutDir': 'dataframeProcessing', 'Filter': 'FiltrateAllHit', 'kwargs': {'Input.CheckContinueTrigger': 'False', 'Input.Hdf5Dir': 'dataframeProcessing', 'Input.Hdf5Names': ['sep_tmpData32']}}
+2025-04-15 15:58:59,823 [ root ] - INFO : step_TimeSlice2
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'timeSlice', 'Filter': 'TimeSlice', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing', 'Input.Hdf5Names': ['allHit_sep_tmpData32'], 'Input.TimeIntervals': '0.5d', 'Input.CheckFactor': '5', 'Input.IfPrint': 'True', 'Input.DrawOptions': ['TH1F:histe']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_FindBaseline
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'dataframeAnalyzer', 'Filter': 'FindBaseline', 'kwargs': {'Input.Hdf5Dir': 'data', 'Input.Hdf5Names': ['cormis05_baseline_20240107']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_FindThreshold
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'dataframeAnalyzer', 'Filter': 'FindThreshold', 'kwargs': {'Input.Hdf5Dir': 'data', 'Input.Hdf5Names': ['tmpData32'], 'Input.BaselineDir': 'dataframeAnalyzer', 'Input.BaselineNames': ['cormis05_baseline_20240107_baseline.csv'], 'Input.SmoothLevels': ['2'], 'Input.ADCOffset': '3'}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_DrawBaseLineList
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'baseline', 'Filter': 'DrawBaselineList', 'kwargs': {'Input.BaselineDir': 'dataframeAnalyzer', 'Input.BaselineCsvNames': ['cormis05_baseline_20240107_baseline.csv'], 'Output.PdfName': 'baseline_20240107.pdf'}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_DrawBaselineThreshold
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'drawPrint', 'Filter': 'DrawBaselineThreshold', 'kwargs': {'Input.RootDir': 'dataframeAnalyzer', 'Input.RootNames': ['tmpData32_threshold.root'], 'Input.BaselineDir': 'dataframeAnalyzer', 'Input.BaselineNames': ['cormis05_baseline_20240107_baseline.csv'], 'Input.ThresholdDir': 'dataframeAnalyzer', 'Input.ThresholdNames': ['tmpData32_threshold.csv'], 'Output.PDFNames': ''}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_CutWithThreshold
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'dataframeProcessing', 'Filter': 'CutWithThreshold', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing', 'Input.Hdf5Names': ['allHit_sep_tmpData32'], 'Input.ThresholdDir': 'dataframeAnalyzer', 'Input.ThresholdNames': ['cormis05_baseline_20240107_baseline.csv']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_SubtractBaseline
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'dataframeProcessing', 'Filter': 'SubtractBaseline', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing', 'Input.Hdf5Names': ['cutThre_allHit_sep_tmpData32'], 'Input.BaselineDir': 'dataframeAnalyzer', 'Input.BaselineNames': ['cormis05_baseline_20240107_baseline.csv']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_FindBarChannelRelation
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'detInfo', 'Filter': 'FindBarChannelRelation', 'kwargs': {'Input.Hdf5Dir': 'data', 'Input.Hdf5Names': ['tmpData32']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_ReplaceChannel
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'dataframeProcessing', 'Filter': 'ReplaceChannel', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing', 'Input.Hdf5Names': ['subBl_cutThre_allHit_sep_tmpData32'], 'Input.BarChannelRelationNames': ['./detInfo/rech_cormis05.csv'], 'Output.Hdf5Names': ['reChn_subBl_cutThre_allHit_sep_tmpData32']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_FiltrateAllHit2
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'dataframeProcessing1', 'Filter': 'FiltrateAllHit', 'kwargs': {'Input.CheckContinueTrigger': 'True', 'Input.Hdf5Dir': 'dataframeProcessing', 'Input.Hdf5Names': ['reChn_subBl_cutThre_allHit_sep_tmpData32.h5']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_TimeSlice3
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'timeSlice', 'Filter': 'TimeSlice', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing1', 'Input.Hdf5Names': ['allHit_reChn_subBl_cutThre_allHit_sep_tmpData32'], 'Input.TimeIntervals': '0.5d', 'Input.CheckFactor': '5', 'Input.IfPrint': 'True', 'Input.DrawOptions': ['TH1F:histe']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_AddKeyMeasTime
+2025-04-15 15:58:59,824 [ root ] - INFO : {'Filter': 'AddKeyMeasTime', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing1', 'Input.Hdf5Names': ['allHit_reChn_subBl_cutThre_allHit_sep_tmpData32']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_CalcHitPoints
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'hitPoints', 'Filter': 'CalcHitPoints', 'kwargs': {'Input.Hdf5Dir': 'dataframeProcessing1', 'Input.Hdf5Names': ['allHit_reChn_subBl_cutThre_allHit_sep_tmpData32.h5'], 'Input.DetNames': ['D8'], 'Input.CalcMultiTriggers': 'True', 'Input.UseDetMeasTime': 'False'}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_DoAllStatistics
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'muonStatistics', 'Filter': 'DoAllStatistics', 'kwargs': {'Input.TreeRootDir': 'hitPoints', 'Input.TreeRootNames': ['allHit_reChn_subBl_cutThre_allHit_sep_tmpData32.root'], 'Input.DetNames': ['D8'], 'Input.SolidAngleName': 'size_of_angle.root', 'Input.PrintPdf': 'True', 'Input.DrawOptions': ['H1F:histe'], 'Output.StatsNames': ['stats_cormis05_tmpData32.root']}}
+2025-04-15 15:58:59,824 [ root ] - INFO : step_PrintAllCountsMeasTime
+2025-04-15 15:58:59,824 [ root ] - INFO : {'OutDir': 'PrintAllCountsMeasTime', 'Filter': 'PrintAllCountsMeasTime', 'kwargs': {'Input.TreeRootDir': 'hitPoints', 'Output.CsvName': 'cormis05Data.csv'}}
+2025-04-15 15:58:59,824 [ DataFactory.DataManager ] - INFO : Run PrintOfflineTablesInfo.
+2025-04-15 15:58:59,840 [ DataFactory.DataManager ] - INFO : Run TimeSlice.

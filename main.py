@@ -43,7 +43,7 @@ flt_dictionary = {"forward": ['Topo2Ltopo',
 if __name__ == '__main__':
     setup_logging(default_path="loggingCfg.yaml")
 
-    # setting = Setting.Setting(r'/data/guorui/SynologyDrive/liugreen/muography/prj.ZaoziGou/step.ini')
+    # setting = Setting.Setting(r'step.ini')
     print("argv1 = ", sys.argv[1])
     setting = Setting.Setting(sys.argv[1])
     data_manager = DataManager.DataManager(setting)
