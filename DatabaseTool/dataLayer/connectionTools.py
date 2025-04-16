@@ -162,8 +162,8 @@ class Lumis_Decode(object):
         ---------DATA PART-------------
         NAME    ROW     SIZE    LOCAL
         HAED    1ROW    2Bytes  0-1
-        HGain   36ROW   72Bytes 2-73
-        LGain   36ROW   72Bytes 74-145
+        HGain   36ROW   72Bytes 2-73        0 0 G H | Charge(12bit)
+        LGain   36ROW   72Bytes 74-145      0 0 G H | Charge(12bit)
         BCID    1ROW    2Bytes  146-147
         ChipID  1ROW    2Bytes  148-149
         Temp    1ROW    2Bytes  150-151
@@ -193,8 +193,9 @@ class Lumis_Decode(object):
             raise ValueError("Packet tails do not match.")
         charge = np.empty(39, dtype='uint16')  # 存储解析后数据的位置
         # time/LowGain information
-        for j in range(36):
-            index = j + 37
+        for j in range(36): #0----35
+            index = j + 37  #37 ++
+            # 74 : 76
             temp = int.from_bytes(source[index * 2:(index + 1) * 2], byteorder='big', signed=False)
             if hitCheck == 1:
                 charge[35 - j] = (temp & _value) if bool(temp & _hit) else 0
@@ -283,7 +284,7 @@ class Lumis_Decode(object):
         DATA TYPE:  np.array
         dtype:      uint16
         :return: np.array:all the valid board data in one event,shape(n,39)
-                np.array: timeTag, shape(n,)
+                 np.array: timeTag, shape(n,)
         '''
         while True:
             buff = self._binaryBuff.get()
@@ -489,18 +490,18 @@ class Lumis_Decode(object):
         tailList = []
         while True:
             try:
-                head = source.index(b'\xfa\x5a', tail)
-                tail = source.index(b'\xfe\xee\xfe\xee',head)
+                head = source.index(b'\xfa\x5a', tail) # 从tail位置向后查找包头:b'\xfa\x5a'
+                tail = source.index(b'\xfe\xee\xfe\xee',head) # 从head位置向后查找包尾b'\xfe\xee\xfe\xee'
             except:
                 break
-            if len(source) < tail+12:
+            if len(source) < tail+12: # if 当前数据包不完整
                 try:
-                    tail = tailList[-1]
+                    tail = tailList[-1] # 尝试回退到上一个有效包尾位置
                 except IndexError:
-                    tail = 0
+                    tail = 0 # 无历史包尾则重置为0
                 finally:
                     break
-            headList.append(head)
+            headList.append(head) # 将当前找到的包头、包尾索引加入列表
             tailList.append(tail)
         return headList,tailList,source[tail:]
 

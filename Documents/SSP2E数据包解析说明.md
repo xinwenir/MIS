@@ -25,8 +25,8 @@ SSP2E数据包解析说明
         ---------DATA PART-------------
         NAME    ROW     SIZE    LOCAL
         HAED    1ROW    2Bytes  0-1         0xFA 0x5A
-        HGain   36ROW   72Bytes 2-73        
-        LGain   36ROW   72Bytes 74-145
+        HGain   36ROW   72Bytes 2-73        0 0 G H | Charge(12bit)
+        LGain   36ROW   72Bytes 74-145      0 0 G H | Charge(12bit)
         BCID    1ROW    2Bytes  146-147
         ChipID  1ROW    2Bytes  148-149
         Temp    1ROW    2Bytes  150-151
@@ -40,3 +40,28 @@ SSP2E数据包解析说明
         TrigID          1
         TOTAL LENGTH:   38
         ===============================
+
+       || HEAD   |  HGain  |  LGain  |  BCID  | ChipID |  Temp  | TriggeID |  TAIL  | XXXXXX ||
+       || 2Bytes | 72Bytes | 72Bytes | 2Bytes | 2Bytes | 2Bytes | 2Bytes   | 4Bytes | 8Bytes ||
+       ||  0--1  |  2--73  | 74--145 | 146-147|148-149 |150-151 | 152-153  | 154-157| 158-165||
+
+        ======THE FORMAT OF SOURCE=====
+        ---------DATA PART-------------
+        NAME    ROW     SIZE    LOCAL
+        HAED    1ROW    2Bytes  0-1
+        HGain   36ROW   72Bytes 2-73
+        LGain   36ROW   72Bytes 74-145
+        BCID    1ROW    2Bytes  146-147
+        ChipID  1ROW    2Bytes  148-149
+        Temp    1ROW    2Bytes  150-151
+        Trigger 1ROW    2Bytes  151-153
+        TAIL    1ROW    4Bytes  154-157
+        ---------STATUS PART-----------
+        TrigDAC 1ROW    2Bytes  158-159 0-1
+        INDAC   1ROW    2Bytes  160-161 2-3
+        TrigMode1ROW    2Bytes  162-163 4-5
+        BoardID 1ROW    2Bytes  164-165 6-7
+        TOTAL SIZE: 166
+       || HEAD   |  HGain  |  LGain  |  BCID  | ChipID |  Temp  | TriggeID |  TAIL  | TrigDAC | INDAC  | TrigMode | BoardID ||
+       || 2Bytes | 72Bytes | 72Bytes | 2Bytes | 2Bytes | 2Bytes | 2Bytes   | 4Bytes | 2Bytes  | 2Bytes |   2Bytes | 2Bytes  ||
+       ||  0--1  |  2--73  | 74--145 | 146-147|148-149 |150-151 | 152-153  | 154-157| 158-159 | 160-161| 162-163 | 164 -165 ||
